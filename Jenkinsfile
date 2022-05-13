@@ -11,7 +11,7 @@ pipeline{
     steps{
     sh "pwd"
     sh "ls"
-    sh "docker build -t tomcat/docker image:1.0 ."
+    sh "docker build -t  image:1.0 ."
     }
     }
     stage('publish'){
