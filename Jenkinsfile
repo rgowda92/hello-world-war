@@ -12,7 +12,7 @@ pipeline{
     sh "pwd"
     sh "ls"
     sh "sudo chmod 666 /var/run/docker.sock"   
-    sh "docker build -t  image:1.0 ."
+    sh "docker build -t tom:1.0 ."
     }
     }
     stage('publish'){
