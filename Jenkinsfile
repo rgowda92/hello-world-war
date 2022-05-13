@@ -1,21 +1,33 @@
 pipeline{
-	agent { label 'group2' }
-   stages{
-     stage('checkout'){
-       steps{
-      	sh'git pull https://github.com/manojugowda/hello-world-war.git'
-	}
-      }
-	   stage('build'){
-        steps{
-	sh'mvn clean package'
+    agent{ lable 'linux' }
+    stages{
+    stage('checkout'){
+            steps{
+            sh "rm -rf hello-world-war"
+            sh "git clone https://github.com/rgowda92/hello-world-war.git"
+            }
+            }
+    stage('build'){
+    steps{
+    sh "pwd"
+    sh "ls"
+    sh "cd hello-world war"
+    sh "docker build -t raki412/docker image:1.0."
     }
-   }
-
-	   	   stage('copy'){
-        steps{
-	sh'cp -R /home/slave-3/jenkins/workspace/package/target/hello-world-war-1.0.0 /opt/apache-tomcat-9.0.56/webapps'
     }
-   }
-  }
- }
+    stage('publish'){
+           steps{
+              sh"docker login-u rakesh412 -p rakeshmp@07"
+              sh "docker pull rakesh412/dockerimage:1.0"
+           }  
+       }    
+       stage('deploy'){
+           agent{ lable 'rakesh' }
+           steps{
+       }      sh "docker login -u rakesh412 -p rakeshmp@07"
+              sh "docker pull rakesh412/docker image:1.0"
+              sh "docker run -d -p 8050:8080 --name trial rakesh412/dockimage:1.0"
+            }     
+        }  
+      }        
+    }
