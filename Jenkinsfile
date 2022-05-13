@@ -17,7 +17,7 @@ pipeline{
     }
     stage('publish'){
            steps{
-              sh"docker login-u rakesh412 -p rakeshmp@07"
+              sh"docker login -u rakesh412 -p rakeshmp@07"
               sh "docker pull rakesh412/dockerimage:1.0"
            }  
        }    
