@@ -26,7 +26,6 @@ pipeline{
            agent{ label 'slave' }
            steps{
               sh "docker login -u rakesh412 -p rakeshmp@07"
-            
               sh "docker pull rakesh412/dockerimage:1.0"
               sh "docker rm -f trial"
               sh "docker run -d -p 8050:8080 --name trial rakesh412/dockerimage:1.0"
