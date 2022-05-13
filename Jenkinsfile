@@ -28,7 +28,8 @@ pipeline{
               sh "docker login -u rakesh412 -p rakeshmp@07"
             
               sh "docker pull rakesh412/dockerimage:1.0"
-              sh "docker run -d -p 8050:8080 --name trial rakesh412/dockimage:1.0"
+              sh "docker rm -f trial"
+              sh "docker run -d -p 8050:8080 --name trial rakesh412/dockerimage:1.0"
             }     
         }  
       }        
