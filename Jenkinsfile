@@ -1,5 +1,5 @@
 pipeline{
-    agent{ lable 'linux' }
+    agent{ lable 'master' }
     stages{
     stage('checkout'){
             steps{
@@ -22,7 +22,7 @@ pipeline{
            }  
        }    
        stage('deploy'){
-           agent{ lable 'rakesh' }
+           agent{ lable 'slave' }
            steps{
        }      sh "docker login -u rakesh412 -p rakeshmp@07"
               sh "docker pull rakesh412/docker image:1.0"
