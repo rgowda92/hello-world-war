@@ -11,7 +11,6 @@ pipeline{
     steps{
     sh "pwd"
     sh "ls"
-    sh "cd hello-world war"
     sh "docker build -t raki412/docker image:1.0."
     }
     }
